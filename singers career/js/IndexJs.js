@@ -10,15 +10,26 @@ let accion = 'activo'
 
 body.addEventListener('keydown', function(e) {
    if (accion == 'activo') {
-    const audio = new Audio("fondo/speed trap.mp3")
-    audio.play();
-     div_Start.setAttribute('hidden', 'true');
+    const sonidoboton = new Audio("sonidos/botones.mp3");
+    sonidoboton.play();
     accion ='inactivo' ;
+    setTimeout(function() {
+    var audio = new Audio("fondo/speed trap.mp3")
+    audio.play();
+    audio.volume = 0.3;
+},500)
+   
+     div_Start.setAttribute('hidden', 'true');
+     setTimeout(function() {
     div_elegir.removeAttribute('hidden');
+  
+},2800)
 }
 })
 
 btn_crear_usuario.addEventListener('click', function(e){
+    const sonidoboton = new Audio("sonidos/botones.mp3");
+    sonidoboton.play();
     vista_crear_usuario.removeAttribute('hidden')
     div_elegir.setAttribute('hidden', 'true')
     
@@ -26,6 +37,8 @@ btn_crear_usuario.addEventListener('click', function(e){
     
 
 btn_ya_tengo_cuenta.addEventListener('click', function(e){
+    const sonidoboton = new Audio("sonidos/botones.mp3");
+    sonidoboton.play();
     vista_tengo_cuenta.removeAttribute('hidden')
     div_elegir.setAttribute('hidden', 'true')
     
