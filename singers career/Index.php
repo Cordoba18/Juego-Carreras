@@ -26,12 +26,14 @@
    <div class="crear_usuario" hidden>
     <?php include_once('vistas/CrearUsuario.php') ?>
    </div>
+   <p id="guardar_nombre_de_usuario"> </p>
 
    <div class="tengocuenta" hidden>
    <?php include_once('vistas/Loguearse.php') ?>
 
    </div>
 
+   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
    <script src="js/IndexJs.js"></script>
 
 </body>
