@@ -1,6 +1,4 @@
 const btn_submit = document.querySelector('#btn_submit');
-
-
 btn_submit.addEventListener('click', function(e){
 e.preventDefault();
 const input_text = document.querySelector('#username').value;
@@ -22,9 +20,6 @@ $(document).ready(function() {
       data : {usuario : guardar.textContent},
       success: function(data) {
         let respuesta = JSON.parse(data);
-        console.log(respuesta[0]['respuesta']);
-        
-            
             if (respuesta[0]['respuesta'] == true) {
                 const error = document.querySelector('#error');
                 error.innerHTML = "EL USUARIO YA EXISTE";
@@ -33,7 +28,9 @@ $(document).ready(function() {
             }else if (respuesta[0]['respuesta'] == false) {
                 const crear_usuario = document.querySelector('.crear_usuario');
                 crear_usuario.setAttribute('hidden', 'true');
-                console.log('si puedoi')
+                const crear_personaje = document.querySelector('.crear_personaje');
+                crear_personaje.removeAttribute('hidden');
+                console.log(crear_personaje)
             }
        
         
