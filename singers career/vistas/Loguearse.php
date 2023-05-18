@@ -2,6 +2,23 @@
 <div class="texto-loguearse">
     <p> INGRESE SU NOMBRE DE USUARIO</p>
 </div>
+<?php
+$url = $_SERVER['REQUEST_URI'];
+
+
+$parseUrl = parse_url($url);
+
+if (isset($parseUrl['query'])) {
+    
+    parse_str($parseUrl['query'], $queryParams);
+    
+    
+    unset($queryParams['user']);
+    
+    $newQuery = http_build_query($queryParams);
+    
+    $newUrl = $parseUrl['path'] . '?' . $newQuery;
+}?>
     <div class="contenedor-input">
     <input id="input-username" type="text" placeholder="NOMBRE DE USUARIO" required>
     <p id="error-input"> </p>

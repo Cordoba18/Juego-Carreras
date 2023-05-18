@@ -43,12 +43,3 @@ btn_seleccionar.addEventListener('click', () =>{
         });
       });
 })
-const btn_volver = document.querySelector('#btn_volver-CP');
-
-btn_volver.addEventListener('click', function(e){
-    e.preventDefault();
-    const vistaactual = document.querySelector('.crear_personaje');
-    vistaactual.setAttribute('hidden', 'true');
-    const vistaelegir = document.querySelector('.elegir');
-    vistaelegir.removeAttribute('hidden');
-})

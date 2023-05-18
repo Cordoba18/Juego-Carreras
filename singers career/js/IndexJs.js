@@ -1,3 +1,4 @@
+
 const div_Start = document.querySelector('.start');
 const body = document.querySelector('#BodyStart');
 const vista_crear_usuario = document.querySelector('.crear_usuario')
@@ -5,8 +6,14 @@ const div_elegir = document.querySelector('.elegir');
 const btn_crear_usuario = document.querySelector('#btn_crear_usuario')
 const vista_tengo_cuenta = document.querySelector('#vistaloguearse')
 const btn_ya_tengo_cuenta = document.querySelector('#btn_ya_tengo_cuenta')
-let accion = 'activo'
-console.log('hola')
+let accion = 'activo';
+const url = new URL(window.location.href);
+
+url.searchParams.delete('user');
+url.pathname = '/Juego/singers%20career/';
+const nuevaURL = url.toString();
+window.history.pushState({ path: nuevaURL }, '', nuevaURL+'Index.php');
+
 body.addEventListener('keydown', function(e) {
    if (accion == 'activo') {
     const sonidoboton = new Audio("sonidos/botones.mp3");
@@ -42,4 +49,5 @@ btn_ya_tengo_cuenta.addEventListener('click', function(e){
     div_elegir.setAttribute('hidden', 'true')
     
 })
+
 

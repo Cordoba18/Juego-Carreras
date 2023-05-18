@@ -21,7 +21,14 @@ btn_logueo.addEventListener('click', function(e){
                     if (respuesta[0]['respuesta'] == true) {
                         alert('LOGUEADO')
                         texto_error.innerHTML = "LOGUEADO";
-                        
+                        const nuevaURL = window.location.href + '?user=' + respuesta[0]['user'];
+                        window.history.pushState({ path: nuevaURL }, '', nuevaURL);
+                        const vistaactual = document.querySelector('#vistaloguearse');
+                        vistaactual.setAttribute('hidden', 'true');
+                        const sala_usuario = document.querySelector('.sala_usuario');
+                        sala_usuario.removeAttribute('hidden');
+                        const guardar_user = document.querySelector('#guardar_nombre_de_usuario');
+                        guardar_user.innerHTML = input_username;
                     }else if (respuesta[0]['respuesta'] == false) {
                         texto_error.innerHTML = "NO EXITE";
                     }
