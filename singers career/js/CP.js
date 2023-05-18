@@ -26,9 +26,13 @@ btn_seleccionar.addEventListener('click', () =>{
           success: function(data) {
             let respuesta = JSON.parse(data);
                 if (respuesta[0]['respuesta'] == true) {
-                  alert('Usuario CREADO CORRECTAMENTE');
+                  alert('USUARIO CREADO CORRECTAMENTE');
+                  const vista_crearpersonaje = document.querySelector('.crear_personaje');
+                  vista_crearpersonaje.setAttribute('hidden' , 'true');
+                  const vista_loguearse = document.querySelector('#vistaloguearse');
+                  vista_loguearse.removeAttribute('hidden');
                 }else if (respuesta[0]['respuesta'] == false) {
-                  alert('Usuario NO CREADO');
+                  alert('USUARIO NO CREADO');
                 }
            
             
@@ -39,4 +43,12 @@ btn_seleccionar.addEventListener('click', () =>{
         });
       });
 })
+const btn_volver = document.querySelector('#btn_volver-CP');
 
+btn_volver.addEventListener('click', function(e){
+    e.preventDefault();
+    const vistaactual = document.querySelector('.crear_personaje');
+    vistaactual.setAttribute('hidden', 'true');
+    const vistaelegir = document.querySelector('.elegir');
+    vistaelegir.removeAttribute('hidden');
+})

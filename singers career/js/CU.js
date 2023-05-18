@@ -43,3 +43,13 @@ $(document).ready(function() {
 }
 
 })
+
+const btn_volver = document.querySelector('#btn_volver-CU');
+
+btn_volver.addEventListener('click', function(e){
+    e.preventDefault();
+    const vistaactual = document.querySelector('.crear_usuario');
+    vistaactual.setAttribute('hidden', 'true');
+    const vistaelegir = document.querySelector('.elegir');
+    vistaelegir.removeAttribute('hidden');
+})

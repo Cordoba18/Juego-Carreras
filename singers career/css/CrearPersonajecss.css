@@ -28,3 +28,18 @@
     background-color: #B71375;
     box-shadow: 0px 0px 25px #B71375;
 }
+.contenedor-volver{
+    width: 100%;
+
+}
+.contenedor-volver a{
+    text-decoration: none;
+    border: none;
+    font-size: 25px;
+    margin: 5px;
+    color: #B71375;
+
+}
+.contenedor-volver a:hover{
+    border-bottom: #B71375 solid 2px;
+}
