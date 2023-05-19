@@ -60,3 +60,18 @@
     padding: 10px;
 
 }
+.contenedor-volver{
+    width: 100%;
+
+}
+.contenedor-volver a{
+    text-decoration: none;
+    border: none;
+    font-size: 25px;
+    margin: 5px;
+    color: #B71375;
+
+}
+.contenedor-volver a:hover{
+    border-bottom: #B71375 solid 2px;
+}
