@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
     socket.on('carrera:carros', (data) => {
             io.sockets.emit('carrera:carros', data);
     }) ;  
-    socket.on('carrera:finalizado', (data) => {
-        io.sockets.emit('carrera:finalizado', data);
+    socket.on('carrera:finalizado', (dato) => {
+        io.sockets.emit('carrera:finalizado', dato);
 }) ;    
 })

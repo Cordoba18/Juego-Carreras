@@ -250,7 +250,9 @@ btn_empezar.addEventListener('click', () =>{
     
 })
 ////////////////////////////////////////////////////////
-
+let top_usuarios = [];
+let top_personajes = [];
+let jugadores_totales = 0;
 // DIV CARRERA
 socket.on('carrera:start', function (data) {
     if (codigo_de_sala == data.codigo && data.accion == true) {
@@ -258,6 +260,12 @@ socket.on('carrera:start', function (data) {
             carrera = true; 
         }else{
             carrera = false; 
+        }
+        for (let index = 0; index < usuarios.length; index++) {
+            if (salas[index] == codigo_de_sala) {
+                jugadores_totales = jugadores_totales + 1;
+            }
+            
         }
     }else if (codigo_de_sala == data.codigo && data.accion == false) {
         if (data.rol == "lider") {
@@ -274,20 +282,100 @@ socket.on('carrera:start', function (data) {
             div_sala_previa.setAttribute('hidden', 'true');
             div_sala_usuario.removeAttribute('hidden');
         }
+        
     }
      })
+
+const div_top = document.querySelector('.sala_top');
+const info_top1 = document.querySelector('.info_usuario_top_1');
+const info_top2 = document.querySelector('.info_usuario_top_2');
+const info_top3 = document.querySelector('.info_usuario_top_3');
+const mensaje_carrera = document.querySelector('.mensaje_carrera');
 socket.on('carrera:finalizado', function (data) {
      if (codigo_de_sala == data.codigo) {
+        let contenedor_usuario = document.querySelector('#contenedor_usuario');
+        contenedor_usuario.innerHTML = "<img src='personajes/Fotos/"+cargar_imagen_personaje(nombre_personaje) +"'>" +
+            "<h1>"+ usuario +"</h1>";
+        top_usuarios.push(data.user);
+        top_personajes.push(data.personaje);
+        
+        if (jugadores_totales == 2 && top_usuarios.length === 1) {
+            if (rol_usuario == 'lider') {
+                const btn_volver_Sala = document.querySelector('#btn_volver_sala');
+                btn_volver_Sala.removeAttribute('hidden');}
+                if (top_usuarios.indexOf(usuario) !== -1) {
+                    mensaje_carrera.innerHTML = "<p> FELICITACIONES QUEDASTE EN EL TOP </p>"
+                }else{
+                    mensaje_carrera.innerHTML = "<p> MUY MAL APRENDE A MANEJAR </p>"
+                }
+            info_top1.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[0]) +"' >"+
+            "<h2>"+ top_usuarios[0] +"</h2>"
+            div_carrera.setAttribute('hidden', 'true');
+            div_top.removeAttribute('hidden');
             estadocarro = 'inactivo';
             carrera = false;
-            body.style.overflowX = "hidden";
-            const todo = document.querySelector('.todo');
-            todo.remove()
-            document.write("<div style='width: 100vw; height: 100vh; align-self: center; text-align: center;'>" +
-            "<p style='font-size : 50px; margin-top: 60px;'> Felicidades a "+ data.user+" has ganado </p>"+
-            "<img src='personajes/Vehiculos/"+ cargarvehiculo(data.personaje) +"'>" +
-            "<a class='btn btn-dark' style='margin: 70px;' href=''> REGRESAR </a>"+
-            "</div>")
+        }
+        else if (jugadores_totales == 3 && top_usuarios.length  === 2) {
+            if (rol_usuario == 'lider') {
+            const btn_volver_Sala = document.querySelector('#btn_volver_sala');
+            btn_volver_Sala.removeAttribute('hidden');}
+            if (top_usuarios.indexOf(usuario) !== -1) {
+                mensaje_carrera.innerHTML = "<p> FELICITACIONES QUEDASTE EN EL TOP </p>"
+            }else{
+                mensaje_carrera.innerHTML = "<p> MUY MAL APRENDE A MANEJAR </p>"
+            }
+            const top_2  = document.querySelector('.contenedor_top2');
+            top_2.removeAttribute('hidden');
+            info_top1.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[0]) +"' >"+
+            "<h2>"+ top_usuarios[0] +"</h2>";
+            info_top2.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[1]) +"' >"+
+            "<h2>"+ top_usuarios[1] +"</h2>";
+            div_carrera.setAttribute('hidden', 'true');
+            div_top.removeAttribute('hidden');
+
+            estadocarro = 'inactivo';
+            carrera = false;
+        }else if (jugadores_totales > 3 && top_usuarios.length  === 3) {
+            if (rol_usuario == 'lider') {
+            const btn_volver_Sala = document.querySelector('#btn_volver_sala');
+            btn_volver_Sala.removeAttribute('hidden');}
+            if (top_usuarios.indexOf(usuario) !== -1) {
+                mensaje_carrera.innerHTML = "<p> FELICITACIONES QUEDASTE EN EL TOP </p>"
+            }else{
+                mensaje_carrera.innerHTML = "<p> MUY MAL APRENDE A MANEJAR </p>"
+            }
+            const top_3  = document.querySelector('.contenedor_top3');
+            top_3.removeAttribute('hidden');
+            const top_2  = document.querySelector('.contenedor_top2');
+            top_2.removeAttribute('hidden');
+            info_top1.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[0]) +"' >"+
+            "<h2>"+ top_usuarios[0] +"</h2>";
+            info_top2.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[1]) +"' >"+
+            "<h2>"+ top_usuarios[1] +"</h2>";
+            info_top3.innerHTML = "<img src='personajes/Fotos/"+ cargar_imagen_personaje(top_personajes[2]) +"' >"+
+            "<h2>"+ top_usuarios[2] +"</h2>";
+            div_carrera.setAttribute('hidden', 'true');
+            div_top.removeAttribute('hidden');
+
+            estadocarro = 'inactivo';
+            carrera = false;
+        }
+          
+            
+
+
+            // body.style.overflowX = "hidden";
+            // const todo = document.querySelector('.todo');
+            // todo.remove()
+
+
+
+
+            // document.write("<div style='width: 100vw; height: 100vh; align-self: center; text-align: center;'>" +
+            // "<p style='font-size : 50px; margin-top: 60px;'> Felicidades a "+ data.user+" has ganado </p>"+
+            // "<img src='personajes/Vehiculos/"+ cargarvehiculo(data.personaje) +"'>" +
+            // "<a class='btn btn-dark' style='margin: 70px;' href=''> REGRESAR </a>"+
+            // "</div>")
         }
     })          
 
@@ -358,14 +446,19 @@ body.addEventListener('keydown', (e) =>{
       bottom: rect.bottom,
       right: rect.right
     };
-    console.log(posicion['left'].toFixed())
     if (posicionmeta() <= posicion['left']) {
-
+        carrera = false;
+        estadocarro = "inactivo";
+        if (carrera == false) {
+            setTimeout(function () {
         socket.emit('carrera:finalizado', {
             codigo : codigo_de_sala,
             user : usuario, 
             personaje : nombre_personaje,
         })
+    }, 1000) 
+                 
+    }
     }else
     if (tecla == "ArrowRight") {
         var left = car.offsetLeft;
@@ -395,6 +488,7 @@ body.addEventListener('keydown', (e) =>{
         sonidoboton.play();
         const audio = new Audio("sonidos/Cronómetro 5 Segundos.mp3")
         audio.play();
+        audio.volume = 0.3;
         velocidad = 3;
         setTimeout(() => {
             velocidad = 1;
@@ -668,7 +762,6 @@ function cargarmusica(personaje) {
 }
 let usuario_registrados = [];
 socket.on('usuarios:ingresados', function (data) {
-    console.log("LLEGO EL USUARIO", data.user);
     usuario_registrados.push(data.user);
      })
 
