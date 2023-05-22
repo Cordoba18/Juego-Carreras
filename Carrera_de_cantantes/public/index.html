@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Juego de carreras </title>
+</head>
+
+<body id="BodyStart" style="background-color: black; overflow-x: hidden; overflow-y: hidden;">
+
+    <div class="start">
+        <link rel="stylesheet" href="css/Index.css">
+        <div class="logo">
+            <img src="imgs/logo.png" alt="">
+        </div>
+        <div class="texto">
+            <span class="parpadea text"><strong>PRESIONE UN BOTON</strong>
+        </div>
+    </div>
+
+
+    <div class="crear_personaje" hidden>
+        <link rel="stylesheet" href="css/CrearPersonajecss.css">
+        <div class="texto_crear_usuario">
+            <p style="color: white; font-family: fantasy; font-size: 40px; "> ESCOJE UN PERSONAJE </p>
+        </div>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <img style="width: 400px; height: 300px;" src="personajes/Fotos/Arcangel.png" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style=" background-color: #B71375; color: white; border-radius: 30px; text-align: center;">Arcangel</h5>
+                    </div>
+                </div>
+                <div class='carousel-item'>
+                    <img style="width : 400px; height: 300px ;" src="personajes/Fotos/Feid.png" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style="background-color: #B71375; color : white; border-radius: 30px; text-align: center;">Feid</h5>
+                    </div>
+                </div>
+                <div class='carousel-item'>
+                    <img style="width : 400px; height: 300px ;" src="personajes/Fotos/Karol_G.png" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style="background-color: #B71375; color : white; border-radius: 30px; text-align: center;">Karol G</h5>
+                    </div>
+                </div>
+                <div class='carousel-item'>
+                    <img style="width : 400px; height: 300px ;" src="personajes/Fotos/Los-Rogelios.jpg"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style="background-color: #B71375; color : white; border-radius: 30px; text-align: center;">Los Rogelios</h5>
+                    </div>
+                </div>
+                <div class='carousel-item'>
+                    <img style="width : 400px; height: 300px ;" src="personajes/Fotos/Rosalia.png" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style="background-color: #B71375; color : white; border-radius: 30px; text-align: center;">Rosalia</h5>
+                    </div>
+                </div>
+                <div class='carousel-item'>
+                    <img style="width : 400px; height: 300px ;" src="personajes/Fotos/Shakira.png" class="d-block w-100"
+                        alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="nombre"
+                            style="background-color: #B71375; color : white; border-radius: 30px; text-align: center;">Shakira</h5>
+                    </div>
+                </div>
+            </div>
+            <button id="btn-izquierda" class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button id="btn-derecha" class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="contenedor-boton">
+            <button id="btn-seleccionar"> SELECCIONAR </button>
+        </div>
+    </div>
+
+
+    <div id="vistaloguearse" hidden>
+        <link rel="stylesheet" href="css/Loguarsecss.css">
+        <div class="texto-loguearse">
+            <p> INGRESE SU NOMBRE DE USUARIO</p>
+        </div>
+
+        <div class="contenedor-input">
+            <input id="input-username" type="text" placeholder="NOMBRE DE USUARIO" required>
+            <p id="error-input"> </p>
+        </div>
+        <div class="contenedor-button">
+            <button id="boton-loguearse"> ENTRAR </button>
+        </div>
+        <div class="contenedor-volver">
+            <a id="btn_volver_loguearse" href>VOLVER</a>
+        </div>
+    </div>
+
+
+    <div class="sala_usuario" hidden>
+        <link rel="stylesheet" href="css/SalaUsuariocss.css">
+
+        <div class="colum-izquierda" style="margin: 30px; border: solid 5px white;">
+            <div class="contenedor-personaje">
+            </div>
+        </div>
+        <div class="colum-derecha">
+            <div class="contenedor-vehiculo">
+            </div>
+            <div class="contenedor-botones">
+            </div>
+        </div>
+    </div>
+
+    <div class="sala_previa" hidden>
+        
+        <link rel="stylesheet" href="css/Sala_Previacss.css">
+        <div class="columna-izquierda">
+
+            <div class="contenedor_superior">
+                <h1> LIDER DE SALA</h1>
+                
+                <div class="info_lider">
+                    <div id="imagen_lider">
+                    </div>
+                    <div id="nombre_lider"></div>
+                </div>
+            </div>
+            <div class="contenedor_inferior">
+                <p> CODIGO SALA : </p><p style="color: #B71375;" id="codigo_sala"></p>
+                <p> ASIGNAR LIMITE DE SALA :  </p> <p id="limite_sala_text" hidden></p> <input id="limite_sala_input" type="number" min="0" max="6" hidden>
+                <P> JUGADORES EN SALA : </P>
+                <p id="cantidad_jugadores"></p>
+            </div>
+
+        </div>
+        <div class="columna-derecha">
+            <div class="contenedor_superior">
+                <table class="table table-dark">
+                    <thead>
+                        <th>USUARIO</th>
+                        <th>PERSONAJE</th>
+                    </thead>
+                    <tbody id="columnas" class="bg-secondary">
+                    </tbody>
+                </table>
+            </div>
+            <div class="contenedor_inferior">
+                <p id="interrogante"></p>
+                <div class="botonsitos">
+                <button id="btn_salir"> SALIR </button>
+                <button id="btn_empezar">EMPEZAR </button>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="unirse_sala" hidden>
+        <link rel="stylesheet" href="css/UnirseSalacss.css">
+        <div class="texto-loguearse">
+            <p> INGRESE EL CODIGO DE LA SALA</p>
+        </div>
+
+        <div class="contenedor-input">
+            <input id="input-codigo-sala" type="text" placeholder="CODIGO" required>
+            <p id="error-input"> </p>
+        </div>
+        <div class="contenedor-button">
+            <button id="btn_entrar_sala"> ENTRAR </button>
+        </div>
+        <div class="contenedor-volver">
+            <a id="btn_volver_loguearse" href>VOLVER</a>
+        </div>
+    </div>
+
+    <div class="carrera" hidden>
+        <link rel="stylesheet" href="css/css.css">
+        <div class="contador">
+            <p class="segundero">5</p>
+        </div>
+        <div class="todo" style="height: 100%; margin: 0;">
+    
+        <div class="header">
+    
+    
+       
+    
+        <div class="cielo" style="background-image: url(imgs/nuves\ melas.png);  background-color: darkcyan;">
+           
+            <div class="tabla" style="display: flex;">
+                <div id="info_corredor" style="margin-left: 10px;">
+                    
+                </div>
+                <div id="corredores">
+                    
+                    <table class="table" id="tabla_Corredores">
+                        <h1 style="color: black; font-size: 35px; font-family: fantasy;">JUGADORES EN PARTIDA </h1>
+                        <thead>
+                            <tr>
+                            <th>USUARIO</th>
+                            <th>PERSONAJE</th>
+                            <th>VEHICULO</th>
+                        </tr>
+                        </thead>
+                        <tbody id="columnas-jugadores">
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+
+            <div class="contenedor_cancion">
+                <h1> CANCION</h1>
+                <p id="cancion"> </p>
+            </div>
+            <div class="contenedor_turbo">
+                <img src="imgs/Turbo.png" alt="">
+                <h1 id="contador-turbo"> TURBO ACTIVO </h1>
+            </div>
+            <div class="contenedor_teclas">
+                <img src="imgs/tecla_izquierda.png" alt="">
+                <img src="imgs/tecla_derecha.png" alt="">
+                <img src="imgs/tecla_x.png" alt="">
+            </div>
+        </div>
+    </div>
+        <div class="fooder" >
+    
+         <div class="auto">
+            <div class="contenedor-autos">
+        </div>
+            <div class="meta">
+            </div>
+        </div>
+        <div class="anden" style="margin: 0;"></div>
+    </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js" charset="utf -8"></script>
+    <script src="juego.js" charset="utf -8"></script>
+</body>
+
+</html>
