@@ -268,7 +268,12 @@ socket.on('carrera:start', function (data) {
             
         }
     }else if (codigo_de_sala == data.codigo && data.accion == false) {
-        if (data.rol == "lider") {
+        carrera = false;
+        actividadcarrera = setInterval(correr, 10);
+        contenedor_autos.innerHTML = "";
+        musica_personaje.pause();
+        musica.play();
+        if (data.rol == "lider" && data.sala !== "top") {
             salas = salas.filter(function(elemento) {
                 return elemento !== data.codigo;
             });
@@ -278,8 +283,20 @@ socket.on('carrera:start', function (data) {
         usuarios = usuarios.filter(function(elemento) {
             return elemento !== data.user;
         });
-        if (data.rol == rol_usuario && data.user == usuario) {
+        if (data.rol == rol_usuario && data.user == usuario && data.sala !== "top") {
             div_sala_previa.setAttribute('hidden', 'true');
+            div_sala_usuario.removeAttribute('hidden');
+        }
+
+        if (data.rol == "lider" && data.sala == "top") {
+            salas = salas.filter(function(elemento) {
+                return elemento !== data.codigo;
+            });
+            div_top.setAttribute('hidden', 'true');
+            div_sala_usuario.removeAttribute('hidden');
+        }
+        if (data.rol == rol_usuario && data.user == usuario && data.sala == "top") {
+            div_top.setAttribute('hidden', 'true');
             div_sala_usuario.removeAttribute('hidden');
         }
         
@@ -388,8 +405,8 @@ socket.on('carrera:carros', function (data) {
            console.log(data.medidas);
      }
     })
-
-const actividadcarrera = setInterval(() =>{
+let actividadcarrera = setInterval(correr, 10);
+function correr() {
 
    if (carrera == true) {
     console.log('voy a correr')
@@ -432,7 +449,7 @@ let contador_turbo = document.querySelector('#contador-turbo');
     }
 
 
-let velocidad = 1;
+let velocidad = 3;
 let turbo = "activo";
 
 body.addEventListener('keydown', (e) =>{
@@ -449,6 +466,17 @@ body.addEventListener('keydown', (e) =>{
     if (posicionmeta() <= posicion['left']) {
         carrera = false;
         estadocarro = "inactivo";
+        Swal.fire({
+            title: 'HAS TERMINADO ESPERA QUE LOS DEMAS JUGADORES TERMINEN PARA VER TU POSICIÓN',
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              left top
+              no-repeat
+            `
+          })
         if (carrera == false) {
             setTimeout(function () {
         socket.emit('carrera:finalizado', {
@@ -489,7 +517,7 @@ body.addEventListener('keydown', (e) =>{
         const audio = new Audio("sonidos/Cronómetro 5 Segundos.mp3")
         audio.play();
         audio.volume = 0.3;
-        velocidad = 3;
+        velocidad = 5;
         setTimeout(() => {
             velocidad = 1;
             clearInterval(conteo_turbo);
@@ -520,9 +548,38 @@ function posicionmeta() {
     return posicion['left'].toFixed();
 }
    }
-}, 10)
+}
 
 ////////////////////////////////
+
+// DIV SALA_TOP
+
+const btn_salir_top = document.querySelector('#btn_salir_sala_top');
+
+
+btn_salir_top.addEventListener('click', (e) => {
+
+    if (rol_usuario == "lider") {
+        
+        socket.emit('carrera:start', {
+            codigo : codigo_de_sala,
+            accion : false,
+            user : usuario, 
+            rol : rol_usuario,
+            sala : "top",
+        })
+    }else{
+
+        socket.emit('carrera:start', {
+            codigo : codigo_de_sala,
+            accion : false,
+            user : usuario, 
+            rol : rol_usuario,
+            sala : "top",
+        })
+
+    }
+})
 
 //METODOS
 function info_for_sala_usuario(usuario, personaje) {
@@ -620,15 +677,16 @@ function generarAlfanumericoAleatorio() {
   }
 
   function cargarsalaprevia(codigo_sala, datos, usuario, cantidad_jugadores) {
+    colomnas.innerHTML = "";
     console.log("cargando salas.....")
-    for (let index = 0; index < usuarios.length; index++) {
-        
-        if (usuarios[index] == usuario && roles[index] !== "lider" && salas[index] == codigo_sala) {
+        if (rol_usuario !== "lider") {
             const btn_empezar = document.querySelector('#btn_empezar');
             btn_empezar.setAttribute('hidden', 'true');
+        }else {
+            const btn_empezar = document.querySelector('#btn_empezar');
+            btn_empezar.removeAttribute('hidden');
         }
         
-    }
     if (codigo_sala == "") {
         
     }else if (codigo_sala == datos.codigo_de_sala){
@@ -656,7 +714,6 @@ function generarAlfanumericoAleatorio() {
                 }
             }
         }
-        colomnas.innerHTML = "";
         for (let index = 0; index < usuarios.length; index++) {
             if (salas[index] == codigo_sala) {
                 cantplayers = cantplayers + 1; 
@@ -676,7 +733,7 @@ function generarAlfanumericoAleatorio() {
     cs.innerHTML = datos.codigo_de_sala;
   }
 }
-
+let musica_personaje = "";
 function cargar_carrera() {
     
     contenedor_autos.innerHTML = "";
@@ -704,6 +761,7 @@ function cargar_carrera() {
     let url_Cancion = "personajes/Canciones/" + contenido_musica[0];
     console.log(url_Cancion)
     const musica = new Audio("personajes/Canciones/" + contenido_musica[0]);
+    musica_personaje = musica;
     musica.play();
     musica.volume = 0.3;
 
