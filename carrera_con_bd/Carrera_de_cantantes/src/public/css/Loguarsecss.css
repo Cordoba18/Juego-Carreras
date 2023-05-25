@@ -1,0 +1,81 @@
+#vistaloguearse{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 1050px;
+    padding: 180px 180px;
+    box-shadow: 0px 0px 6px #B71375;
+    background-image: url(../fondo/FondoPequeno.gif);
+    font-weight: bold;
+}
+.texto-loguearse{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.texto-loguearse p{
+    width: auto;
+    background-color: #B71375;
+    color: black;
+    font-family: fantasy;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+.contenedor-input{
+    width: 100%;
+    flex-wrap: wrap;
+}
+.contenedor-input input{
+    width: 700px;
+    font-size: 20px;
+    font-family: fantasy;
+    outline: none;
+    border: #B71375 3px solid;
+    text-align: center;
+
+}
+
+.contenedor-button{
+    width: 100%;
+    margin: 10px;
+}
+.contenedor-button button{
+    width: 300px;
+    padding: 5px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: #B71375 solid 3px;
+}
+.contenedor-button button:hover{
+    background-color: #B71375;
+    box-shadow: 0px 0px 20px #B71375;
+}
+#error-input{
+    font-size: 20px;
+    color: #B71375;
+    border-radius: 10px;
+    margin: 4px;
+    text-align: center;
+}
+.contenedor-volver{
+    width: 100%;
+
+}
+.contenedor-volver button{
+    text-decoration: none;
+    border: none;
+    font-size: 25px;
+    margin: 5px;
+    color: #B71375;
+
+}
+.contenedor-volver button:hover{
+    border-bottom: #B71375 solid 2px;
+}

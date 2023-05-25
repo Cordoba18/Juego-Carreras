@@ -1,0 +1,134 @@
+.sala_top{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 1px 1px;
+    box-shadow: 0px 0px 6px #B71375;
+    background-image: url(../fondo/FondoPequeno.gif);
+    font-weight: bold;
+    display: flex;
+    color: white;
+}
+.content_buttons{
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+}
+.columna_1{
+    width: 50%;
+}
+.columna_2{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 30px;
+    padding: 1px;
+    border: solid 15px yellow;
+    flex-wrap: wrap;
+}
+.columna_2 h2{
+    font-size: 30px;
+    font-family: fantasy;
+    color: black;
+    
+}
+.columna_2 h1{
+    font-size: 60px;
+    font-family: fantasy;
+    
+}
+#contenedor_usuario{
+
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    border: white solid 10px;
+    margin: 30px;
+    margin-bottom: 70px;
+    width: 400px;
+
+
+}
+#contenedor_usuario img{
+    width: 100%;
+    height: 100%;
+
+}
+#contenedor_usuario h1{
+    text-align: center;
+    width: 100%;
+    font-family: fantasy;
+}
+.columna_2 img{
+    width: 100px;
+    height: 80px;
+
+}
+
+.info_usuario_top_2{
+    background-color: #B71375;
+    height: 200px;
+    position: relative;
+    bottom: 0;
+    border: 7px solid black;
+    padding: 10px;
+}
+.info_usuario_top_1{
+    background-color: #B71375;
+    height: 300px;
+    bottom: 0;
+    border: 10px solid yellow;
+    padding: 10px;
+}
+.info_usuario_top_3{
+    background-color: #B71375;
+    height: 150px;
+    bottom: 0;
+    border: 5px solid white;
+    padding: 10px;
+}
+.mensaje_carrera{
+    width: 100%;
+    background-color: #B71375;
+    margin: 15px;
+    border-radius: 30px;
+}
+.mensaje_carrera p{
+    font-size: 20px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.content_buttons button{
+    width: 150px;
+    padding: 5px;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: #B71375 solid 3px;
+    margin-bottom: 20px;
+    margin: 20px;
+    text-decoration: none;
+}
+.content_buttons button:hover{
+    background-color: #B71375;
+    box-shadow: 0px 0px 20px #B71375;
+}
+.contenedor_top2 h1{
+    color: black;
+}
+.contenedor_top1 h1{
+
+    color: yellow;
+}
+.contenedor_top3 h1{
+    color: white;
+}

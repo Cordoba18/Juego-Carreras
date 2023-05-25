@@ -1,0 +1,67 @@
+body, html{
+    font-family: fantasy;
+}
+.text {
+    font-size:28px;
+    font-weight:bold;
+    color:#B71375;
+    text-transform:uppercase;
+    background-color: black;
+    padding: 10px 60px;
+    border-radius: 20px;
+    margin-top: 200px;
+  }
+  .parpadea {
+    
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  
+    -webkit-animation-name:parpadeo;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+  }
+  
+  @-moz-keyframes parpadeo{  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+  
+  @-webkit-keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+  }
+  
+  @keyframes parpadeo {  
+    0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+  }
+
+.start{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  box-shadow: 0px 0px 6px #B71375;
+  padding: 95px 189px;
+  background-image: url(../fondo/FondoPequeno.gif);
+  font-weight: bold;
+  }
+  .start img{
+    width: 300px;
+    height: 300px;
+  }
+  .texto{
+    width: 700px;
+    font-family: fantasy;
+  }
+ span, strong{
+    font-family: fantasy;
+  }
+  

@@ -1,0 +1,83 @@
+.sala_registros{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 1px 1px;
+    background-image: url(FondoPequeno.gif);
+    box-shadow: 0px 0px 6px #B71375;
+    font-weight: bold;
+    display: flex;
+    color: white;
+}
+.columna_1{
+    width: 50%;
+}
+.columna_2{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    padding: 10px;
+    border: dashed 15px #B71375;
+    flex-wrap: wrap;
+    text-align: center;
+}
+#contenedor_usuario_registros{
+
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    border: white solid 10px;
+    margin: 30px;
+    margin-bottom: 70px;
+    width: 400px;
+
+
+}
+#contenedor_usuario_registros img{
+    width: 100%;
+    height: 100%;
+
+}
+#contenedor_usuario_registros h1{
+    text-align: center;
+    width: 100%;
+    font-family: fantasy;
+}
+
+button{
+    width: 300px;
+    padding: 5px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: #B71375 solid 3px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+button:hover{
+    background-color: #B71375;
+    box-shadow: 0px 0px 20px #B71375;
+}
+
+
+th{
+    margin: 15px;
+    background-color: #B71375;
+    padding: 20px;
+    font-size: 15px;
+    width: 200px;
+}
+.tabla_registros{
+    width: 700px;
+    overflow-y: scroll;
+    height: 400px;
+}
+td{
+    color: black;
+    background-color: white;
+}

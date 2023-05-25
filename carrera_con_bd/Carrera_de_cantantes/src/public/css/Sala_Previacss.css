@@ -1,0 +1,77 @@
+.sala_previa{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 1050px;
+    height: auto;
+    padding: 1px 1px;
+    box-shadow: 0px 0px 6px #B71375;
+    background-image: url(../fondo/FondoPequeno.gif);
+    font-weight: bold;
+    display: flex;
+    color: white;
+}
+
+
+.columna-izquierda{
+    width: 50%;
+    height: 100%;
+}
+.columna-derecha{
+    width: 50%;
+    height: 100%
+}
+.contenedor_inferior{
+    height: 50%;
+    width: 100%;
+}
+.contenedor_superior{
+    height: 50%;
+    width: 100%;
+}
+.table{
+    width: 400px;
+    font-size: 20px;
+}
+
+#btn_salir, #btn_empezar {
+    width: 250px;
+    padding: 5px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: #B71375 solid 3px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+#btn_empezar:hover, #btn_salir:hover{
+    background-color: #B71375;
+    box-shadow: 0px 0px 20px #B71375;
+}
+
+#imagen_lider img{
+    width: 400px;
+    height: 300px;
+    margin: 10px;
+}
+#nombre_lider p{
+    font-size: 30px;
+    color: #B71375;
+    font-weight: bold;
+}
+th{
+    color: #B71375;
+}
+td{
+    color: white;
+}
+.botonsitos{
+    position: absolute;
+    margin: 30px;
+    text-align: center;
+    bottom: 0;
+    width: 400px;
+}
