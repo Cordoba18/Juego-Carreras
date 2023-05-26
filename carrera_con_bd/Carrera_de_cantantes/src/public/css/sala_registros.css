@@ -17,6 +17,7 @@
     width: 50%;
 }
 .columna_2{
+    width: 900px;
     display: flex;
     justify-content: center;
     margin: 30px;
@@ -69,11 +70,11 @@ th{
     margin: 15px;
     background-color: #B71375;
     padding: 20px;
-    font-size: 15px;
-    width: 200px;
+    font-size: 25px;
+    width: 300px;
 }
 .tabla_registros{
-    width: 700px;
+    width: 900px;
     overflow-y: scroll;
     height: 400px;
 }

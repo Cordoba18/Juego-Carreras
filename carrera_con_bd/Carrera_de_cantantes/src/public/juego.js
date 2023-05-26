@@ -535,7 +535,7 @@ socket.on('carrera:carros', function (data) {
 
     let estadocarro = "inactivo";
     let estadocontador = "inactivo";
-    let velocidad = 3;
+    let velocidad =  0.5;
 let turbo = "activo";
 let actividadcarrera = setInterval(correr, 10);
 function correr() {
@@ -649,9 +649,9 @@ body.addEventListener('keydown', (e) =>{
         const audio = new Audio("sonidos/Cronómetro 5 Segundos.mp3")
         audio.play();
         audio.volume = 0.3;
-        velocidad = 5;
+        velocidad = 1;
         setTimeout(() => {
-            velocidad = 1;
+            velocidad = 0.5;
             clearInterval(conteo_turbo);
             contador_turbo.innerHTML = "TURBO ACTIVO"
             turbo = "activo";
@@ -869,9 +869,12 @@ function cargar_carrera() {
     musica_personaje = musica;
     musica.play();
     musica.volume = 0.3;
+    let jugadores = nombre_participantes.length ;
+    let tamano_meta = jugadores * 100;
+    const meta = document.querySelector('.meta');
+    meta.style.height = tamano_meta + 'px';
 
-
-    info_corredor.innerHTML = "<p style='color: white; font-size: 70px'>"+ usuario +"</p><img style='background-color: white;' src='personajes/Vehiculos/"+ cargarvehiculo(nombre_personaje) +"'>";
+    info_corredor.innerHTML = "<p style='color: white; font-size: 30px'>"+ usuario +"</p><img style='background-color: white;' src='personajes/Vehiculos/"+ cargarvehiculo(nombre_personaje) +"'>";
 }
 function cargarmusica(personaje) {
 
