@@ -535,7 +535,7 @@ socket.on('carrera:carros', function (data) {
 
     let estadocarro = "inactivo";
     let estadocontador = "inactivo";
-    let velocidad =  0.5;
+    let velocidad =  1;
 let turbo = "activo";
 let actividadcarrera = setInterval(correr, 10);
 function correr() {
@@ -649,9 +649,9 @@ body.addEventListener('keydown', (e) =>{
         const audio = new Audio("sonidos/Cronómetro 5 Segundos.mp3")
         audio.play();
         audio.volume = 0.3;
-        velocidad = 1;
+        velocidad = 2;
         setTimeout(() => {
-            velocidad = 0.5;
+            velocidad = 1;
             clearInterval(conteo_turbo);
             contador_turbo.innerHTML = "TURBO ACTIVO"
             turbo = "activo";
